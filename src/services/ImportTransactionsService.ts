@@ -9,6 +9,8 @@ class ImportTransactionsService {
     const transactionsSaved = new Array<Transaction>();
     const lines = await loadCSV(Filepath);
 
+    fs.unlink(Filepath, () => null);
+
     for (const item of lines) {
       const createTransaction = new CreateTransactionService();
 

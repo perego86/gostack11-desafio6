@@ -29,6 +29,8 @@ async function loadCSV(filePath: string): Promise<Transaction[]> {
     parseCSV.on('end', resolve);
   });
 
+  fs.unlinkSync(filePath);
+
   return lines;
 }
 export default loadCSV;
